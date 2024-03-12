@@ -1,31 +1,19 @@
 import { FC } from "react";
 import { AvatarWithDropdownProps } from "./types";
-import { Avatar, Button, Dropdown, MenuProps } from "antd";
+import { Avatar, Dropdown, MenuProps } from "antd";
 import styles from "./styles.module.scss";
 import { LogoutOutlined } from "@ant-design/icons";
-import { useAppDispatch } from "@/hooks/redux";
-import { logout } from "@/store/reducers/slices/account.slice";
-import { useNavigate } from "@tanstack/react-router";
+import useAuth from "@/hooks/useAuth";
 
 const AvatarWithDropdown: FC<AvatarWithDropdownProps> = ({ account }) => {
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+  const { logout } = useAuth();
 
   const items: MenuProps["items"] = [
     {
       key: 0,
-      label: (
-        <Button
-          onClick={() => {
-            dispatch(logout());
-            navigate({ to: "/" });
-          }}
-          type="text"
-          icon={<LogoutOutlined />}
-        >
-          Выйти
-        </Button>
-      ),
+      label: "Выйти",
+      onClick: logout,
+      icon: <LogoutOutlined />,
     },
   ];
 
