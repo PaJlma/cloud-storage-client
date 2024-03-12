@@ -85,7 +85,7 @@ const RegistrationForm: FC<RegistrationFormProps> = (props) => {
       </Form.Item>
       <Typography.Text style={{ textAlign: "center", display: "block" }}>
         Регистрируясь вы соглашаетесь с нашими{" "}
-        <Link to="/">правилами обработки данных</Link>
+        <Link to="/terms-of-use">правилами обработки данных</Link>
       </Typography.Text>
     </FormLayout>
   );

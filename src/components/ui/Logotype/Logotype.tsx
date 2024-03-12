@@ -7,12 +7,12 @@ import { COMPANY_NAME } from "@/constants";
 import styles from "./styles.module.scss";
 import { Link } from "@tanstack/react-router";
 
-const Logotype: FC<LogotypeProps> = (props) => {
+const Logotype: FC<LogotypeProps> = ({ size = "normal" }) => {
   const { theme } = useContext(ConfigContext);
 
   return (
     <Link to="/">
-      <Flex align="center" gap={10}>
+      <Flex align="center" gap={10} className={styles[size]}>
         <CloudFilled
           className={styles["logotype"]}
           style={{ color: theme?.token?.colorPrimary }}

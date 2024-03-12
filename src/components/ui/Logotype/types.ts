@@ -1,1 +1,3 @@
-export interface LogotypeProps {}
+export interface LogotypeProps {
+  size?: "normal" | "large";
+}
