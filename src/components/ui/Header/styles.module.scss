@@ -1,0 +1,9 @@
+@import "@/scss/vars.scss";
+
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0 $content-padding ;
+}

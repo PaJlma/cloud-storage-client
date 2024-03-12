@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import { ConfigProvider } from "antd";
 import { theme } from "./antd/config";
+import "./normalize.css";
 
 const router = createRouter({ routeTree });
 
