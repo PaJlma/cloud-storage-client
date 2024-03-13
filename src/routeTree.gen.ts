@@ -15,6 +15,7 @@ import { Route as TermsOfUseImport } from './routes/terms-of-use'
 import { Route as RegistrationImport } from './routes/registration'
 import { Route as LoginImport } from './routes/login'
 import { Route as IndexImport } from './routes/index'
+import { Route as StorageMyImport } from './routes/storage/my'
 
 // Create/Update Routes
 
@@ -38,6 +39,11 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const StorageMyRoute = StorageMyImport.update({
+  path: '/storage/my',
+  getParentRoute: () => rootRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -58,6 +64,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsOfUseImport
       parentRoute: typeof rootRoute
     }
+    '/storage/my': {
+      preLoaderRoute: typeof StorageMyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -68,6 +78,7 @@ export const routeTree = rootRoute.addChildren([
   LoginRoute,
   RegistrationRoute,
   TermsOfUseRoute,
+  StorageMyRoute,
 ])
 
 /* prettier-ignore-end */

@@ -19,13 +19,16 @@ const HomePresentation: FC<HomePresentationProps> = (props) => {
           планеты
         </Typography>
         <Flex vertical gap={20} className={styles["text-box__footer"]}>
-          <Button
-            type="primary"
-            size="large"
-            className={styles["open-storage-btn"]}
-          >
-            Открыть хранилище
-          </Button>
+          <Link to="/storage/my">
+            <Button
+              type="primary"
+              size="large"
+              className={styles["open-storage-btn"]}
+              style={{ width: "100%" }}
+            >
+              Открыть хранилище
+            </Button>
+          </Link>
           {!login && (
             <Flex align="center" gap={20}>
               <Typography.Text className={styles["dont-have-account"]}>

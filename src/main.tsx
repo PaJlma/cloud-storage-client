@@ -1,5 +1,5 @@
 import { RouterProvider, createRouter } from "@tanstack/react-router";
-import React from "react";
+import React, { FC } from "react";
 import ReactDOM from "react-dom/client";
 import { routeTree } from "./routeTree.gen";
 import { Provider } from "react-redux";
@@ -8,7 +8,7 @@ import { ConfigProvider } from "antd";
 import { theme } from "./antd/config";
 import "./normalize.css";
 
-const router = createRouter({ routeTree });
+const router = createRouter({ routeTree, context: { auth: undefined } });
 
 declare module "@tanstack/react-router" {
   interface Register {
@@ -20,7 +20,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>
       <ConfigProvider theme={theme}>
-        <RouterProvider router={router} />
+        <RouterProvider router={router} context={{ auth: false }} />
       </ConfigProvider>
     </Provider>
   </React.StrictMode>,

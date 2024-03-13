@@ -21,7 +21,7 @@ const FormLayout: FC<FormLayoutProps> = ({ title, titleSuffix, ...props }) => {
         }}
         className={styles["image"]}
       />
-      <Flex vertical gap={20} className={styles["form-wrapper"]}>
+      <Flex vertical gap={35} className={styles["form-wrapper"]}>
         {title && (
           <Flex align="center" gap={20}>
             <Typography.Title className={styles["title"]}>
