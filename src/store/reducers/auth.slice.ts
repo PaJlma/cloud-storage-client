@@ -11,7 +11,16 @@ export interface AuthState {
 const initialState: AuthState = {
   isAuthenticated: false,
   isFetching: false,
-  account: {},
+  account: {
+    _id: "",
+    login: "",
+    name: "",
+    lastName: "",
+    color: "",
+    createdAt: "",
+    email: "",
+    passworod: "",
+  },
 };
 
 export const fetchAccount = createAsyncThunk<AccountInterface>(
@@ -23,6 +32,11 @@ export const fetchAccount = createAsyncThunk<AccountInterface>(
     return response.data;
   },
 );
+
+export const clearAccount = createAsyncThunk("auth/clear-account", async () => {
+  await axiosWRA.post("http://localhost:5000/auth/logout");
+  localStorage.removeItem("access");
+});
 
 export const authSlice = createSlice({
   name: "auth",
@@ -41,5 +55,9 @@ export const authSlice = createSlice({
         state.isAuthenticated = true;
         state.account = action.payload;
       });
+    builder.addCase(clearAccount.fulfilled, (state) => {
+      state.isAuthenticated = false;
+      state.account = initialState.account;
+    });
   },
 });

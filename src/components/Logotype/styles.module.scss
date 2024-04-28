@@ -1,0 +1,18 @@
+@import "@/styles/vars.scss";
+
+.body {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 10px;
+
+  .logotype {
+    color: $primary-color;
+    font-size: 30px;
+  }
+
+  .company-name {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
