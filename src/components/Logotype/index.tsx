@@ -6,9 +6,9 @@ import { Link } from "@tanstack/react-router";
 import { Typography } from "antd";
 import { COMPANY_NAME } from "@/constants";
 
-const Logotype: FC<LogotypeProps> = ({ withText }) => {
+const Logotype: FC<LogotypeProps> = ({ withText, size = "normal" }) => {
   return (
-    <Link to="/" className={styles["body"]}>
+    <Link to="/" className={`${styles["body"]} ${styles[size]}`}>
       <CloudFilled className={styles["logotype"]} />
       {withText && (
         <Typography.Text className={styles["company-name"]}>

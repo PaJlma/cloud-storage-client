@@ -15,7 +15,6 @@ const Header: FC<HeaderProps> = ({
   avatarColor,
   storageTotalSize,
   storageMaxSize,
-  logout,
 }) => {
   const navigate = useNavigate();
   const percents = useMemo(() => {
@@ -30,14 +29,14 @@ const Header: FC<HeaderProps> = ({
           <Flex align="center" gap={20}>
             <Typography.Text>{`${formatBytes(storageTotalSize)} / ${formatBytes(storageMaxSize)}`}</Typography.Text>
             <Progress
+              trailColor="#C1C1C1"
               percent={percents}
-              style={{ width: 300 }}
+              style={{ width: 200 }}
               showInfo={false}
               status={percents >= 90 ? "exception" : "normal"}
             />
           </Flex>
           <AppAvatar
-            logout={logout}
             size="large"
             login={login}
             name={name}
@@ -46,7 +45,7 @@ const Header: FC<HeaderProps> = ({
         </Flex>
       ) : (
         <Button
-          onClick={() => navigate({ to: "/registration" })}
+          onClick={() => navigate({ to: "/login" })}
           type="primary"
           icon={<LoginOutlined />}
         >

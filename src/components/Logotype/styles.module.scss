@@ -6,13 +6,27 @@
   text-decoration: none;
   gap: 10px;
 
-  .logotype {
-    color: $primary-color;
-    font-size: 30px;
+  &.normal {
+    .logotype {
+      font-size: 32px;
+      color: $primary-color;
+    }
+
+    .company-name {
+      font-weight: 500;
+      font-size: 20px;
+    }
   }
 
-  .company-name {
-    font-size: 20px;
-    font-weight: 600;
+  &.large {
+    .logotype {
+      font-size: 35px;
+      color: $primary-color;
+    }
+
+    .company-name {
+      font-weight: 500;
+      font-size: 30px;
+    }
   }
 }

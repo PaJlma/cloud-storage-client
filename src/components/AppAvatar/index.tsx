@@ -1,19 +1,19 @@
 import { FC } from "react";
 import { AppAvatarProps } from "./types";
 import { Avatar, Dropdown, MenuProps } from "antd";
+import { useAppDispatch } from "@/hooks/redux";
+import { clearAccount } from "@/store/reducers/auth.slice";
+import { LogoutOutlined } from "@ant-design/icons";
 
-const AppAvatar: FC<AppAvatarProps> = ({
-  login,
-  color,
-  name,
-  logout,
-  ...props
-}) => {
+const AppAvatar: FC<AppAvatarProps> = ({ login, color, name, ...props }) => {
+  const dispatch = useAppDispatch();
+
   const items: MenuProps["items"] = [
     {
       key: "0",
       label: "Выйти",
-      onClick: logout,
+      onClick: () => dispatch(clearAccount()),
+      icon: <LogoutOutlined />,
     },
   ];
 

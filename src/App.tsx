@@ -2,8 +2,8 @@ import { FC, useEffect } from "react";
 import HeaderContainer from "./containers/HeaderContainer";
 import { useAppDispatch, useAppSelector } from "./hooks/redux";
 import { fetchStorageInfo } from "./store/reducers/storage.slice";
-import Presentation from "./components/Home/Presentation";
 import { Flex } from "antd";
+import PresentationContainer from "./containers/PresentationContainer";
 
 const App: FC = () => {
   const { isAuthenticated } = useAppSelector((state) => state.auth);
@@ -19,7 +19,7 @@ const App: FC = () => {
     <>
       <HeaderContainer />
       <Flex justify="center" align="center">
-        <Presentation />
+        <PresentationContainer />
       </Flex>
     </>
   );

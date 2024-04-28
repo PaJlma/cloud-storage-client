@@ -5,5 +5,4 @@ export interface HeaderProps {
   avatarColor: string;
   storageTotalSize: number;
   storageMaxSize: number;
-  logout: () => void;
 }

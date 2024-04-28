@@ -3,8 +3,9 @@ import { FC } from "react";
 import styles from "./styles.module.scss";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { PieChartFilled } from "@ant-design/icons";
+import { PresentationProps } from "./types";
 
-const Presentation: FC = () => {
+const Presentation: FC<PresentationProps> = ({ isAuthenticated }) => {
   const navigate = useNavigate();
 
   return (
@@ -24,19 +25,21 @@ const Presentation: FC = () => {
           type="primary"
           icon={<PieChartFilled />}
           size="large"
-          onClick={() => navigate({ to: "/registration" })}
+          onClick={() => navigate({ to: "/storage/my" })}
         >
           Войти в хранилище
         </Button>
-        <Flex
-          align="center"
-          justify="center"
-          gap={10}
-          className={styles["presentation-footer"]}
-        >
-          <Typography.Text>Ещё нет аккаунта?</Typography.Text>
-          <Link to="/registration">Зарегистрироваться</Link>
-        </Flex>
+        {!isAuthenticated && (
+          <Flex
+            align="center"
+            justify="center"
+            gap={10}
+            className={styles["presentation-footer"]}
+          >
+            <Typography.Text>Ещё нет аккаунта?</Typography.Text>
+            <Link to="/registration">Зарегистрироваться</Link>
+          </Flex>
+        )}
       </Flex>
       <img src="/cloud-technologies.png" alt="cloud technologies" />
     </Flex>

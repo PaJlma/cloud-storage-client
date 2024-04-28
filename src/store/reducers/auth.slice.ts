@@ -19,7 +19,7 @@ const initialState: AuthState = {
     color: "",
     createdAt: "",
     email: "",
-    passworod: "",
+    password: "",
   },
 };
 

@@ -826,7 +826,7 @@
   resolved "https://registry.yarnpkg.com/@tanstack/history/-/history-1.28.9.tgz#487d4414c242d1fe5eacdff109fa25f08da81e11"
   integrity sha512-WgTFJhHaZnGZPyt0H11xFhGGDj1MtA1mrUmdAjB/nhVpmsAYXsSB5O+hkF9N66u7MjbNb405wTb9diBsztvI5w==
 
-"@tanstack/react-router@^1.31.1":
+"@tanstack/react-router@^1.19.4":
   version "1.31.1"
   resolved "https://registry.yarnpkg.com/@tanstack/react-router/-/react-router-1.31.1.tgz#d0cf26f380a1dde43a53548e66aa0d4750d49f97"
   integrity sha512-FZ7wYCL4UXkkT+yB703RcrnD6WO9dqphnEDWoPQIkN3f4Zk28nZPHRew3dcpK8n9o33sZJbCW24PVAdbjmpdEQ==
