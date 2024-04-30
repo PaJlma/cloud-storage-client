@@ -1,7 +1,7 @@
 import { FC, useMemo } from "react";
 import { HeaderProps } from "./types";
 import styles from "./styles.module.scss";
-import { Button, Flex, Progress, Typography } from "antd";
+import { Button, Flex, Progress, Spin, Typography } from "antd";
 import Logotype from "../Logotype";
 import { LoginOutlined } from "@ant-design/icons";
 import AppAvatar from "../AppAvatar";
@@ -15,6 +15,7 @@ const Header: FC<HeaderProps> = ({
   avatarColor,
   storageTotalSize,
   storageMaxSize,
+  storageIsInfoFetching,
 }) => {
   const navigate = useNavigate();
   const percents = useMemo(() => {
@@ -27,7 +28,11 @@ const Header: FC<HeaderProps> = ({
       {isAuthenticated ? (
         <Flex align="center" gap={20}>
           <Flex align="center" gap={20}>
-            <Typography.Text>{`${formatBytes(storageTotalSize)} / ${formatBytes(storageMaxSize)}`}</Typography.Text>
+            {storageIsInfoFetching ? (
+              <Spin size="small" />
+            ) : (
+              <Typography.Text>{`${formatBytes(storageTotalSize)} / ${formatBytes(storageMaxSize)}`}</Typography.Text>
+            )}
             <Progress
               trailColor="#C1C1C1"
               percent={percents}

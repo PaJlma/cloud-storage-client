@@ -1,0 +1,27 @@
+.body {
+  width: 800px;
+
+  .breadcrumb-link {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 140px;
+  }
+
+  .list {
+    border: 1px solid #000;
+    border-radius: 10px;
+    overflow-y: auto;
+    height: 100%;
+  }
+
+  .centered {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .breadcrumb {
+    height: 25px;
+    overflow: hidden;
+  }
+}

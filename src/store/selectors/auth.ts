@@ -16,6 +16,11 @@ export const authAccountSelector = createSelector(
   (state) => state.account,
 );
 
+export const authAccountIdSelector = createSelector(
+  authAccountSelector,
+  (state) => state._id,
+);
+
 export const accountLoginSelector = createSelector(
   authAccountSelector,
   (state) => state.login,

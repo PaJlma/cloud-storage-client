@@ -55,9 +55,8 @@ export const authSlice = createSlice({
         state.isAuthenticated = true;
         state.account = action.payload;
       });
-    builder.addCase(clearAccount.fulfilled, (state) => {
-      state.isAuthenticated = false;
-      state.account = initialState.account;
+    builder.addCase(clearAccount.fulfilled, () => {
+      return initialState;
     });
   },
 });

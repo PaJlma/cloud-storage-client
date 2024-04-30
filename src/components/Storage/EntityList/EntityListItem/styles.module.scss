@@ -1,0 +1,19 @@
+.body {
+  border-bottom: 1px solid #000;
+  padding: 10px;
+  user-select: none;
+
+  .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &[aria-selected="true"] {
+    background-color: lightgray;
+  }
+
+  .icon {
+    font-size: 20px;
+  }
+}

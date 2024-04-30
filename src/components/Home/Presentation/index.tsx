@@ -25,7 +25,7 @@ const Presentation: FC<PresentationProps> = ({ isAuthenticated }) => {
           type="primary"
           icon={<PieChartFilled />}
           size="large"
-          onClick={() => navigate({ to: "/storage/my" })}
+          onClick={() => navigate({ to: "/storage/my", search: { path: "/" } })}
         >
           Войти в хранилище
         </Button>

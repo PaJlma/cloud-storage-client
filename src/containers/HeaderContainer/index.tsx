@@ -7,6 +7,7 @@ import {
   authIsAuthenticatedSelector,
 } from "@/store/selectors/auth";
 import {
+  storageIsInfoFetchingSelector,
   storageMaxSizeSelector,
   storageTotalSizeSelector,
 } from "@/store/selectors/storage";
@@ -19,4 +20,5 @@ export default connect((state: RootStateInterface) => ({
   avatarColor: accountColorSelector(state),
   storageTotalSize: storageTotalSizeSelector(state),
   storageMaxSize: storageMaxSizeSelector(state),
+  storageIsInfoFetching: storageIsInfoFetchingSelector(state),
 }))(Header);

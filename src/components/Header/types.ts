@@ -5,4 +5,5 @@ export interface HeaderProps {
   avatarColor: string;
   storageTotalSize: number;
   storageMaxSize: number;
+  storageIsInfoFetching?: boolean;
 }
