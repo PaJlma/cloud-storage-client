@@ -9,7 +9,6 @@ import {
 } from "@ant-design/icons";
 import styles from "./styles.module.scss";
 import { useAppSelector } from "@/hooks/redux";
-import { axiosWRA } from "@/utils/axios/axiosWRA";
 
 const EntityListItem: FC<EntityListItemProps> = ({
   entity,
@@ -37,19 +36,8 @@ const EntityListItem: FC<EntityListItemProps> = ({
           type="text"
           shape="circle"
           icon={<DownloadOutlined />}
-          onClick={async () => {
-            const response = await axiosWRA.get(
-              `http://localhost:5000/storage/${_id}/download?path=${path}${entity.name}`,
-              {
-                responseType: "arraybuffer",
-              },
-            );
-            const blob = new Blob([response.data]);
-            const link = document.createElement("a");
-            link.href = window.URL.createObjectURL(blob);
-            link.download = entity.name;
-            link.click();
-          }}
+          download
+          href={`http://localhost:5000/storage/${_id}/download?path=${path}${entity.name}`}
         />
       )}
     </Flex>

@@ -112,6 +112,7 @@ const InfoList: FC<InfoListProps> = ({
             });
           } finally {
             setIsFolderCreating(false);
+            setFolderName("");
             setIsCreateFolderModalOpened(false);
           }
         }}

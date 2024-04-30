@@ -3,8 +3,8 @@ import { AppAvatarProps } from "./types";
 import { Avatar, Dropdown, MenuProps } from "antd";
 import { useAppDispatch } from "@/hooks/redux";
 import { clearAccount } from "@/store/reducers/auth.slice";
-import { LogoutOutlined } from "@ant-design/icons";
-import { useNavigate } from "@tanstack/react-router";
+import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
+import { Link, useNavigate } from "@tanstack/react-router";
 
 const AppAvatar: FC<AppAvatarProps> = ({ login, color, name, ...props }) => {
   const dispatch = useAppDispatch();
@@ -19,6 +19,11 @@ const AppAvatar: FC<AppAvatarProps> = ({ login, color, name, ...props }) => {
         navigate({ to: "/" });
       },
       icon: <LogoutOutlined />,
+    },
+    {
+      key: "1",
+      label: <Link to="/profile">Профиль</Link>,
+      icon: <UserOutlined />,
     },
   ];
 

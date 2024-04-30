@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as TermsOfUseImport } from './routes/terms-of-use'
 import { Route as RegistrationImport } from './routes/registration'
+import { Route as ProfileImport } from './routes/profile'
 import { Route as LoginImport } from './routes/login'
 import { Route as IndexImport } from './routes/index'
 import { Route as StorageMyImport } from './routes/storage/my'
@@ -26,6 +27,11 @@ const TermsOfUseRoute = TermsOfUseImport.update({
 
 const RegistrationRoute = RegistrationImport.update({
   path: '/registration',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ProfileRoute = ProfileImport.update({
+  path: '/profile',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -56,6 +62,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginImport
       parentRoute: typeof rootRoute
     }
+    '/profile': {
+      preLoaderRoute: typeof ProfileImport
+      parentRoute: typeof rootRoute
+    }
     '/registration': {
       preLoaderRoute: typeof RegistrationImport
       parentRoute: typeof rootRoute
@@ -76,6 +86,7 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren([
   IndexRoute,
   LoginRoute,
+  ProfileRoute,
   RegistrationRoute,
   TermsOfUseRoute,
   StorageMyRoute,
