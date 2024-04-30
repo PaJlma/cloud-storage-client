@@ -29,6 +29,7 @@ const RegistrationForm: FC = () => {
       form.setFields([
         { name: "repeatPassword", errors: ["Пароли не совпадают"] },
       ]);
+      return;
     }
     registration(values);
   };

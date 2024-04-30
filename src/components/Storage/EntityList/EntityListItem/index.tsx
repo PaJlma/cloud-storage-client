@@ -36,6 +36,7 @@ const EntityListItem: FC<EntityListItemProps> = ({
           type="text"
           shape="circle"
           icon={<DownloadOutlined />}
+          size="small"
           download
           href={`http://localhost:5000/storage/${_id}/download?path=${path}${entity.name}`}
         />

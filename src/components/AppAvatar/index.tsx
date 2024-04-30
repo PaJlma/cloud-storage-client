@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { AppAvatarProps } from "./types";
-import { Avatar, Dropdown, MenuProps } from "antd";
+import { Avatar, Dropdown, Flex, MenuProps, Typography } from "antd";
 import { useAppDispatch } from "@/hooks/redux";
 import { clearAccount } from "@/store/reducers/auth.slice";
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
@@ -12,6 +12,11 @@ const AppAvatar: FC<AppAvatarProps> = ({ login, color, name, ...props }) => {
 
   const items: MenuProps["items"] = [
     {
+      key: "1",
+      label: <Link to="/profile">Профиль</Link>,
+      icon: <UserOutlined />,
+    },
+    {
       key: "0",
       label: "Выйти",
       onClick: async () => {
@@ -20,26 +25,29 @@ const AppAvatar: FC<AppAvatarProps> = ({ login, color, name, ...props }) => {
       },
       icon: <LogoutOutlined />,
     },
-    {
-      key: "1",
-      label: <Link to="/profile">Профиль</Link>,
-      icon: <UserOutlined />,
-    },
   ];
 
   return (
-    <Dropdown menu={{ items }} placement="bottomLeft" arrow trigger={["click"]}>
-      <Avatar
-        style={{
-          backgroundColor: color,
-          cursor: "pointer",
-          userSelect: "none",
-        }}
-        {...props}
+    <Flex align="center" gap={10}>
+      <Typography.Text>{name || login}</Typography.Text>
+      <Dropdown
+        menu={{ items }}
+        placement="bottomRight"
+        arrow
+        trigger={["click"]}
       >
-        {(name ?? login).charAt(0).toUpperCase()}
-      </Avatar>
-    </Dropdown>
+        <Avatar
+          style={{
+            backgroundColor: color,
+            cursor: "pointer",
+            userSelect: "none",
+          }}
+          {...props}
+        >
+          {(name || login).charAt(0).toUpperCase()}
+        </Avatar>
+      </Dropdown>
+    </Flex>
   );
 };
 
